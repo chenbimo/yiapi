@@ -6,11 +6,6 @@ use App\Model\Config as ConfigModel;
 use PhalApi\Api;
 use PhalApi\Exception\BadRequestException;
 
-/**
- * 用户插件
- *
- * @author dogstar 20200331
- */
 class Config extends Api {
     public function getRules(): array {
         return [
