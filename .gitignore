@@ -1,6 +1,7 @@
 vendor
 uploads
 composer.lock
+.vscode
 
 runtime/*
 

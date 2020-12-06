@@ -22,12 +22,18 @@ return PhpCsFixer\Config::create()
         ],
         'return_assignment' => false,
         'no_unused_imports' => false,
+        'no_unneeded_curly_braces' => false,
+        'no_useless_else' => false,
         'phpdoc_annotation_without_dot' => true,
         'phpdoc_summary' => false,
         'no_null_property_initialization' => false,
         'ordered_class_elements' => [
             'order' => [],
             'sortAlgorithm' => 'none',
+        ],
+        'yoda_style' => [
+            'identical' => false,
+            'equal' => false,
         ],
     ])
     ->setFinder($finder)
