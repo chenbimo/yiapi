@@ -1,23 +1,23 @@
 <?php
 
 declare(strict_types=1);
+
 /**
  * Undocumented class
  */
 class Site extends Api {
-    public static function Index() {
+    public function Index() {
         return 'Site.Index';
     }
 
-    /**
+    /*
      * Undocumented function
      *
      * @return void
      */
-    public static function Sel() {
-        $stat = DB::model()->query('SELECT * FROM `user`');
-        $res = $stat->fetchAll(PDO::FETCH_ASSOC);
+    // public  function Sel() {
+    //     $res = M_Site::init()->Sel();
 
-        return json_encode($res);
-    }
+    //     return $res;
+    // }
 }
