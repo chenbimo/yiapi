@@ -6,8 +6,15 @@ declare(strict_types=1);
  * Undocumented class
  */
 class Site {
+
+
+    /**
+     * 站点默认接口
+     *
+     * @return void
+     */
     public function Index() {
-        return 'Site.Index';
+        return 'yiapi v' . YI_VERSION;
     }
 
     /*

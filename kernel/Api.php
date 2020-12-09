@@ -4,37 +4,37 @@ declare(strict_types=1);
 
 class Api implements I_Api {
     // 默认初始化模型
-    public static $Model = null;
+    public static string $tableName = '';
 
     // 构造函数
-    public function __construct($model) {
-        if (self::$Model === null) {
-            self::$Model = 'M_' . $model;
-        }
+    public function __construct() {
+        self::$tableName = static::$tableName ?? '';
     }
 
     // 通用添加接口
     public static function Ins() {
-        $res = self::$Model::Ins();
+        $res = UserModel::Ins(self::$tableName, Tool::GetParams());
 
         return $res;
     }
 
     // 通用删除接口
     public static function Del() {
-        $res = self::$Model::Del();
+        $res = UserModel::Del(self::$tableName, Tool::GetParams());
 
-        return 'Api.Del';
+        return $res;
     }
 
     // 通用更新接口
     public static function Upd() {
-        return 'Api.Upd';
+        $res = UserModel::Upd(self::$tableName, Tool::GetParams());
+
+        return  $res;
     }
 
     // 通用查询接口
     public static function Sel() {
-        $res = self::$Model::Sel();
+        $res = UserModel::Sel(self::$tableName, Tool::GetParams());
 
         return $res;
     }

@@ -3,6 +3,11 @@
 declare(strict_types=1);
 
 class App {
+    /**
+     * 应用初始化
+     *
+     * @return void
+     */
     public static function Init() {
         if (!isset($_SERVER['PATH_INFO'])) {
             $pathinfo = ['Site', 'Index'];
@@ -13,7 +18,7 @@ class App {
             $Class = ucfirst($pathinfo[0]);
             $Method = ucfirst($pathinfo[1]);
             if (class_exists($Class, true)) {
-                $Api = new $Class($Class);
+                $Api = new $Class();
                 if (method_exists($Api, $Method)) {
                     $Result = $Api->{$Method}();
                     Tool::Response($Result);

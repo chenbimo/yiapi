@@ -10,5 +10,5 @@ define('APP_CONFIG', [
      * warning 显示警告
      * exception 抛出异常
      */
-    'pdo_error_mode' => 'silent',
+    'pdo_error_mode' => 'exception',
 ]);

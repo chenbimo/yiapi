@@ -3,71 +3,46 @@
 declare(strict_types=1);
 
 class Model implements I_Model {
-    // 表名
-    public static $tableName = '';
-
-    // 设置表名方法
-    public static function SetTableName() {
-        self::$tableName = '';
-    }
-
-    // 初始化
-    public static function Init(): object {
-        self::$tableName = static::SetTableName();
-        if (DB::$pdo === null) {
-            DB::Init();
-        }
-
-        return new static();
-    }
-
     /**
      * 通用添加模型
-     *
-     * @return void
      */
-    public function Ins() {
-        return 'Api.Ins';
+    public static function Ins(string $tableName, array $params) {
+        $res = Db::Ins($tableName, $params);
+
+        return $res;
     }
 
     /**
      * 通用删除模型
-     *
-     * @return void
      */
-    public function Del() {
-        return 'Api.Del';
+    public static function Del(string $tableName, array $params) {
+        $res = Db::Del($tableName, $params);
+
+        return $res;
     }
 
     /**
      * 通用更新模型
-     *
-     * @return void
      */
-    public function Upd() {
-        return 'Api.Upd';
+    public static function Upd(string $tableName, array $params) {
+        $res = Db::Upd($tableName, $params);
+
+        return $res;
     }
 
     /**
      * 通用查询模型
-     *
-     * @return void
      */
-    public function Sel(): array {
-        $stmt = self::$db->prepare('SELECT * FROM ' . self::$tableName);
-        if ($stmt === false) {
-        }
-        $res = $stmt->fetchAll();
+    public static function Sel(string $tableName, array $params) {
+        $res = Db::Sel($tableName, $params);
 
         return $res;
     }
 
     /**
      * 通用详情模型
-     *
-     * @return void
      */
-    public function Detail() {
+    public static function Detail() {
         return 'Api.Detail';
     }
 }

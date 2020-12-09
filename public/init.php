@@ -5,6 +5,7 @@ declare(strict_types=1);
 error_reporting(E_ALL);
 define('DS', DIRECTORY_SEPARATOR);
 define('YI_ROOT', dirname(__FILE__) . DS . '..');
+define('YI_VERSION', '1.0.0');
 // 时区设置
 date_default_timezone_set('Asia/Shanghai');
 
