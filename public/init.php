@@ -11,6 +11,7 @@ date_default_timezone_set('Asia/Shanghai');
 // 预加载 ----------------------------------
 
 // 配置模块
+require YI_ROOT . '/config/app.php';
 require YI_ROOT . '/config/db.php';
 
 // 接口模块

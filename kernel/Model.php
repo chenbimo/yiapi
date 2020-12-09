@@ -24,6 +24,20 @@ class Model implements I_Model {
     }
 
     /**
+     * 准备语句
+     *
+     * @return void
+     */
+    public function Prepare(string $sql, array $params): ?PDOStatement {
+        $stmt = self::$db->prepare($sql);
+        if ($stmt === false) {
+            return null;
+        } else {
+            return $stmt;
+        }
+    }
+
+    /**
      * 通用添加模型
      *
      * @return void
@@ -57,6 +71,8 @@ class Model implements I_Model {
      */
     public function Sel(): array {
         $stmt = self::$db->prepare('SELECT * FROM ' . self::$tableName . 'd');
+        if ($stmt === false) {
+        }
         $res = $stmt->fetchAll();
 
         return $res;
