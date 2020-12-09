@@ -5,7 +5,7 @@ declare(strict_types=1);
 /**
  * Undocumented class
  */
-class Site extends Api {
+class Site {
     public function Index() {
         return 'Site.Index';
     }
@@ -16,7 +16,7 @@ class Site extends Api {
      * @return void
      */
     // public  function Sel() {
-    //     $res = M_Site::init()->Sel();
+    //     $res = M_Site::Init()->Sel();
 
     //     return $res;
     // }

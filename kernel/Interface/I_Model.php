@@ -7,7 +7,9 @@ interface I_Model {
      *
      * @return void
      */
-    public static function init();
+    public static function Init();
+
+    public static function SetTableName();
 
     /**
      * 通用插入模型

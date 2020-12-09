@@ -19,9 +19,11 @@ require YI_ROOT . '/kernel/Interface/I_Api.php';
 require YI_ROOT . '/kernel/Interface/I_Model.php';
 
 // 核心模块
+require YI_ROOT . '/kernel/Tool.php';
 require YI_ROOT . '/kernel/Db.php';
 require YI_ROOT . '/kernel/Model.php';
 require YI_ROOT . '/kernel/Api.php';
+require YI_ROOT . '/kernel/App.php';
 
 spl_autoload_register(function ($class) {
     require YI_ROOT . "/api/{$class}.php";

@@ -3,38 +3,22 @@
 declare(strict_types=1);
 
 class Model implements I_Model {
-    // 数据库实例
-    public static $db = null;
     // 表名
     public static $tableName = '';
 
     // 设置表名方法
-    public static function tableName() {
+    public static function SetTableName() {
         self::$tableName = '';
     }
 
     // 初始化
-    public static function init(): object {
-        self::$tableName = static::tableName();
-        if (self::$db === null) {
-            self::$db = DB::init();
+    public static function Init(): object {
+        self::$tableName = static::SetTableName();
+        if (DB::$pdo === null) {
+            DB::Init();
         }
 
         return new static();
-    }
-
-    /**
-     * 准备语句
-     *
-     * @return void
-     */
-    public function Prepare(string $sql, array $params): ?PDOStatement {
-        $stmt = self::$db->prepare($sql);
-        if ($stmt === false) {
-            return null;
-        } else {
-            return $stmt;
-        }
     }
 
     /**
@@ -70,7 +54,7 @@ class Model implements I_Model {
      * @return void
      */
     public function Sel(): array {
-        $stmt = self::$db->prepare('SELECT * FROM ' . self::$tableName . 'd');
+        $stmt = self::$db->prepare('SELECT * FROM ' . self::$tableName);
         if ($stmt === false) {
         }
         $res = $stmt->fetchAll();
