@@ -1,6 +1,5 @@
 <?php
 
-declare(strict_types=1);
 
 define('DB_CONFIG', [
     'type' => 'mysql',

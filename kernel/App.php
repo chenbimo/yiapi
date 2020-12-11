@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 class App {
     /**
      * 应用初始化
@@ -23,19 +21,13 @@ class App {
                     $Result = $Api->{$Method}();
                     Tool::Response($Result);
                 } else {
-                    Tool::SetCode(1);
-                    Tool::SetMsg($Method . '方法不存在');
-                    Tool::Response();
+                    Tool::SetExceptionData($Method . '方法不存在', APP_CODE['method_is_not_exists']);
                 }
             } else {
-                Tool::SetCode(1);
-                Tool::SetMsg($Class . '类不存在');
-                Tool::Response();
+                Tool::SetExceptionData($Method . '类不存在', APP_CODE['class_is_not_exists']);
             }
         } else {
-            Tool::SetCode(1);
-            Tool::SetMsg('参数错误');
-            Tool::Response();
+            Tool::SetExceptionData(implode('/', $pathinfo) . '命令不存在', APP_CODE['command_is_not_exists']);
         }
     }
 }

@@ -1,6 +1,5 @@
 <?php
 
-declare(strict_types=1);
 class UserRule implements I_Rule {
     public function Ins(): array {
         return [

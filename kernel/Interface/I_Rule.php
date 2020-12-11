@@ -1,6 +1,5 @@
 <?php
 
-declare(strict_types=1);
 
 interface I_Rule {
     public function Ins(): array;

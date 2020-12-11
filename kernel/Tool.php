@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 class Tool {
     public static int $code = 0;
     public static string $msg = '操作成功';
@@ -42,6 +40,9 @@ class Tool {
     public static function GetParams(): array {
         $params = empty($_POST) ? $_GET : $_POST;
 
+        foreach ($params as $key => $value) {
+        }
+
         return $params;
     }
 
@@ -77,14 +78,36 @@ class Tool {
     }
 
     /**
+     * 获取类型值
+     *
+     * @param [type] $var
+     *
+     * @return void
+     */
+    public static function GetTypeValue($var) {
+    }
+
+    /**
      * 规则检测函数
      *
      * @return void
      */
     public static function CheckRule(array $rules, array $params) {
         foreach ($params as $key => $value) {
-            if (!in_array($key, $rules)) {
-                self::SetExceptionData($key . ' field fule no config', APP_CODE['no_field_rule']);
+            if (in_array($key, array_keys($rules))) {
+                $currentRule = $rules[$key];
+                if ($currentRule['type'] === 'string') {
+                    if (gettype($value) !== 'string') {
+                        self::SetExceptionData($key . ' 字段类型错误', APP_CODE['rule_type_error']);
+                    }
+                }
+                if ($currentRule['type'] === 'int') {
+                    if (intval($value) === false) {
+                        self::SetExceptionData($key . ' 字段类型错误', APP_CODE['rule_type_error']);
+                    }
+                }
+                if ($currentRule['type'] === 'bool') {
+                }
             }
         }
     }

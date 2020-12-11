@@ -16,5 +16,7 @@ define('ABC', '123');
 // var_dump($data);
 // $params = ['3'] ?? ['2'] ?? ['1'];
 // var_dump($params);
-$res = preg_match('/^[0-9]+$/', '1111');
+// $res = preg_match('/^[0-9]+$/', '1111');
+// var_dump($res);
+$res = serialize($_GET);
 var_dump($res);

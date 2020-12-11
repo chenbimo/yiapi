@@ -1,6 +1,5 @@
 <?php
 
-declare(strict_types=1);
 interface I_Api {
     /**
      * 通用插入接口

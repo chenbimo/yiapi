@@ -1,6 +1,5 @@
 <?php
 
-declare(strict_types=1);
 
 class Api implements I_Api {
     // 默认初始化模型
