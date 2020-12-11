@@ -18,7 +18,7 @@ class App {
             $Class = ucfirst($pathinfo[0]);
             $Method = ucfirst($pathinfo[1]);
             if (class_exists($Class, true)) {
-                $Api = new $Class();
+                $Api = new $Class($Class);
                 if (method_exists($Api, $Method)) {
                     $Result = $Api->{$Method}();
                     Tool::Response($Result);

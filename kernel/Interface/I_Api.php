@@ -7,33 +7,33 @@ interface I_Api {
      *
      * @return void
      */
-    public static function Ins();
+    public  function Ins();
 
     /**
      * 通用删除接口
      *
      * @return void
      */
-    public static function Del();
+    public  function Del();
 
     /**
      * 通用修改接口
      *
      * @return void
      */
-    public static function Upd();
+    public  function Upd();
 
     /**
      * 通用查询接口
      *
      * @return void
      */
-    public static function Sel();
+    public  function Sel();
 
     /**
      * 通用详情接口
      *
      * @return void
      */
-    public static function Detail();
+    public  function Detail();
 }

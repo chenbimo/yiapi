@@ -7,33 +7,33 @@ interface I_Model {
      *
      * @return void
      */
-    public static function Ins(string $tableName, array $params);
+    public function Ins(array $params);
 
     /**
      * 通用删除模型
      *
      * @return void
      */
-    public static function Del(string $tableName, array $params);
+    public function Del(array $params);
 
     /**
      * 通用修改模型
      *
      * @return void
      */
-    public static function Upd(string $tableName, array $params);
+    public function Upd(array $params);
 
     /**
      * 通用查询模型
      *
      * @return void
      */
-    public static function Sel(string $tableName, array $params);
+    public function Sel(array $params);
 
     /**
      * 通用详情模型
      *
      * @return void
      */
-    public static function Detail();
+    public function Detail();
 }

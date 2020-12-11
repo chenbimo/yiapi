@@ -20,6 +20,7 @@ class Tool {
             'msg' => self::$msg,
             'data' => $data ?? $defaultValue,
         ]);
+        exit(0);
     }
 
     /**
@@ -72,6 +73,44 @@ class Tool {
             return intval($var);
         } else {
             return "'" . $var . "'";
+        }
+    }
+
+    /**
+     * 规则检测函数
+     *
+     * @return void
+     */
+    public static function CheckRule(array $rules, array $params) {
+        foreach ($params as $key => $value) {
+            if (!in_array($key, $rules)) {
+                self::SetExceptionData($key . ' field fule no config', APP_CODE['no_field_rule']);
+            }
+        }
+    }
+
+    /**
+     * 设置异常数据
+     *
+     * @return void
+     */
+    public static function SetExceptionData(string $msg, int $code): void {
+        try {
+            throw new Exception(
+                $msg,
+                $code,
+            );
+        } catch (Exception $e) {
+            Tool::SetCode($e->getCode());
+            Tool::SetMsg($e->getMessage());
+            $data = [];
+            if (APP_CONFIG['debug'] === true) {
+                $data['file'] = $e->getFile();
+                $data['line'] = $e->getLine();
+                $data['trace'] = $e->getTrace();
+            }
+
+            self::Response($data);
         }
     }
 }

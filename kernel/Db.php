@@ -184,7 +184,7 @@ class Db {
     public static function Sel(string $tableName, array $params) {
         $sqlArray = [
             'SELECT',
-            implode('') explode(',',$params['fields']) ,
+            $params['fields'],
             'FROM',
             $tableName,
             'WHERE',

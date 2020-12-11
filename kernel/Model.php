@@ -3,11 +3,17 @@
 declare(strict_types=1);
 
 class Model implements I_Model {
+    public static string $tableName = '';
+
+    public function __construct() {
+        self::$tableName = static::$tableName;
+    }
+
     /**
      * 通用添加模型
      */
-    public static function Ins(string $tableName, array $params) {
-        $res = Db::Ins($tableName, $params);
+    public function Ins(array $params) {
+        $res = Db::Ins(self::$tableName, $params);
 
         return $res;
     }
@@ -15,8 +21,8 @@ class Model implements I_Model {
     /**
      * 通用删除模型
      */
-    public static function Del(string $tableName, array $params) {
-        $res = Db::Del($tableName, $params);
+    public function Del(array $params) {
+        $res = Db::Del(self::$tableName, $params);
 
         return $res;
     }
@@ -24,8 +30,8 @@ class Model implements I_Model {
     /**
      * 通用更新模型
      */
-    public static function Upd(string $tableName, array $params) {
-        $res = Db::Upd($tableName, $params);
+    public function Upd(array $params) {
+        $res = Db::Upd(self::$tableName, $params);
 
         return $res;
     }
@@ -33,8 +39,8 @@ class Model implements I_Model {
     /**
      * 通用查询模型
      */
-    public static function Sel(string $tableName, array $params) {
-        $res = Db::Sel($tableName, $params);
+    public function Sel(array $params) {
+        $res = Db::Sel(self::$tableName, $params);
 
         return $res;
     }
@@ -42,7 +48,7 @@ class Model implements I_Model {
     /**
      * 通用详情模型
      */
-    public static function Detail() {
+    public function Detail() {
         return 'Api.Detail';
     }
 }
