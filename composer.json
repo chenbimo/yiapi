@@ -2,7 +2,7 @@
     "name": "yiapi/kernal",
     "description": "A pure api framework",
     "type": "project",
-    "license": "apache v2",
+    "license": "Apache-2.0",
     "authors": [
         {
             "name": "chensuiyi",
