@@ -1,0 +1,21 @@
+{
+    "name": "yiapi/kernal",
+    "description": "A pure api framework",
+    "type": "project",
+    "license": "apache v2",
+    "authors": [
+        {
+            "name": "chensuiyi",
+            "email": "bimostyle@qq.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "YiApi\\": "src"
+        }
+    }
+}

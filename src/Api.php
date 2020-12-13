@@ -1,6 +1,5 @@
 <?php
 
-
 class Api implements I_Api {
     // 默认初始化模型
     public static object $Model;
@@ -10,8 +9,12 @@ class Api implements I_Api {
     public function __construct($Class) {
         $M = $Class . 'Model';
         $R = $Class . 'Rule';
-        self::$Model = new $M();
-        self::$Rule = new $R();
+        if (class_exists($M)) {
+            self::$Model = new $M();
+        }
+        if (class_exists($R)) {
+            self::$Rule = new $R();
+        }
     }
 
     // 通用添加接口

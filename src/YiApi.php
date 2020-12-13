@@ -1,10 +1,13 @@
 <?php
 
+namespace YiApi;
 
-error_reporting(E_ALL);
 define('DS', DIRECTORY_SEPARATOR);
 define('YI_ROOT', dirname(__FILE__) . DS . '..');
 define('YI_VERSION', '1.0.0');
+
+// 错误报告等级
+error_reporting(E_ALL);
 // 时区设置
 date_default_timezone_set('Asia/Shanghai');
 
@@ -28,7 +31,16 @@ require YI_ROOT . '/kernel/Api.php';
 require YI_ROOT . '/kernel/App.php';
 
 spl_autoload_register(function ($class) {
-    require YI_ROOT . "/api/{$class}.php";
-    require YI_ROOT . "/model/{$class}.php";
-    require YI_ROOT . "/rule/{$class}.php";
+    $apiPath = YI_ROOT . "/api/{$class}.php";
+    $modelPath = YI_ROOT . "/model/{$class}.php";
+    $rulePath = YI_ROOT . "/rule/{$class}.php";
+    if (file_exists($apiPath)) {
+        require $apiPath;
+    }
+    if (file_exists($modelPath)) {
+        require $modelPath;
+    }
+    if (file_exists($rulePath)) {
+        require $rulePath;
+    }
 });
